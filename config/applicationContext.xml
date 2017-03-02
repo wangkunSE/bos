@@ -35,7 +35,7 @@
 		<property name="mappingDirectoryLocations">
 			<list>
 			<!-- bos.sshproject.domin -->
-				<value>classpath:bos/sshproject/domin</value>
+				<value>classpath:bos/sshproject/*/domin</value>
 			</list>
 		</property>
 		

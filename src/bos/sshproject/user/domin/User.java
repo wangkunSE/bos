@@ -1,4 +1,4 @@
-package bos.sshproject.domin;
+package bos.sshproject.user.domin;
 
 import java.sql.Timestamp;
 
