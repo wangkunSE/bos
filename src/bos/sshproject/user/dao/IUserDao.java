@@ -5,4 +5,6 @@ import bos.sshproject.user.domin.User;
 
 public interface IUserDao extends IBaseDao<User> {
 
+	User findByUsernameAndPassword(String username, String password);
+
 }
