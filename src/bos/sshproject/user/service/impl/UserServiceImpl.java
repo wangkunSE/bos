@@ -24,5 +24,12 @@ public class UserServiceImpl implements IUserService {
 		
 		return userDao.findByUsernameAndPassword(username,password);
 	}
+	
+	@Override
+	public void editPassword(String password, String id) {
+		
+		userDao.executeUpdate("editPassword", password,id);
+		
+	}
 
 }

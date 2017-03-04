@@ -84,9 +84,7 @@
 			$('#editPwdWindow').window('close');
 		});
 		
-		$("#btnEp").click(function(){
-			alert("修改密码");
-		});
+		
 	});
 
 	function onClick(event, treeId, treeNode, clickFlag) {
@@ -135,7 +133,7 @@
 		$.messager
 		.confirm('系统提示','您确定要退出本次登录吗?',function(isConfirm) {
 			if (isConfirm) {
-				location.href = '${pageContext.request.contextPath }/login.jsp';
+				location.href = '${pageContext.request.contextPath }/userAction_logout.action';
 			}
 		});
 	}
@@ -158,7 +156,7 @@
 		</div>
 		<div id="sessionInfoDiv"
 			style="position: absolute;right: 5px;top:10px;">
-			[<strong>超级管理员</strong>]，欢迎你！
+			[<strong>${user.username}</strong>]，欢迎你！
 		</div>
 		<div style="position: absolute; right: 5px; bottom: 10px; ">
 			<a href="javascript:void(0);" class="easyui-menubutton"
@@ -208,7 +206,7 @@
 				<tr>
 					<td style="width: 300px;">
 						<div style="color: #999; font-size: 8pt;">
-							传智播客 | Powered by <a href="http://www.itcast.cn/">itcast.cn</a>
+							WK | Powered by <a href="http://www.wk.cn/">wk.cn</a>
 						</div>
 					</td>
 					<td style="width: *;" class="co1"><span id="online"
@@ -225,16 +223,21 @@
         background: #fafafa">
         <div class="easyui-layout" fit="true">
             <div region="center" border="false" style="padding: 10px; background: #fff; border: 1px solid #ccc;">
+                <form id="editPasswordForm">
                 <table cellpadding=3>
                     <tr>
                         <td>新密码：</td>
-                        <td><input id="txtNewPass" type="Password" class="txt01" /></td>
+                        <td><input id="txtNewPass" type="Password" class="txt01 easyui-validatebox"
+                        required="true" data-options="validType:'length[4,8]'" /></td>
                     </tr>
                     <tr>
                         <td>确认密码：</td>
-                        <td><input id="txtRePass" type="Password" class="txt01" /></td>
+                        <td><input id="txtRePass" type="Password" class="txt01 easyui-validatebox" 
+                         required="true" data-options="validType:'length[4,8]'"
+                        /></td>
                     </tr>
                 </table>
+               </form>
             </div>
             <div region="south" border="false" style="text-align: right; height: 30px; line-height: 30px;">
                 <a id="btnEp" class="easyui-linkbutton" icon="icon-ok" href="javascript:void(0)" >确定</a> 
@@ -242,5 +245,33 @@
             </div>
         </div>
     </div>
+            <script type="text/javascript">
+	           	//为确定按钮绑定事件
+            	$("#btnEp").click(function(){
+	            	//验证表单
+	            	var v = $("#editPasswordForm").form("validate");
+	            	if(v){
+	            		var v1 = $("#txtNewPass").val();
+	            		var v2 = $("#txtRePass").val();
+	            		//两次输入密码一致
+	            		if(v1 == v2){
+	            			url = "${pageContext.request.contextPath}/userAction_editPassword.action";
+	            			$.post(url,{"password":v1},function(data){
+	            				//密码修改成功
+	            				if(data == '1'){
+	            					$.messager.alert("提示信息","密码修改成功！！","info");
+	            				//密码修改失败
+	            				}else{
+	            					$.messager.alert("提示信息","密码修改失败！！","warning");
+	            				}
+	            				//关闭修改密码的窗口
+	            				$("#editPwdWindow").window("close");
+	            			});
+	            		}else{
+	            			$.messager.alert("提示信息","两次输入密码不一致！！","warning");
+	            		}
+	            	}
+	            });
+            </script>
 </body>
 </html>

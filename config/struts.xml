@@ -8,12 +8,34 @@
 	<!-- 注册国际化文件 -->
 	<constant name="struts.custom.i18n.resources" value="message"></constant>
 	<package name="basicstruts2" extends="struts-default">
+	
+		
+		<!-- 注册拦截器 -->
+		<interceptors>
+			<interceptor name="BOSLoginInterceptor" class="bos.sshproject.interceptor.BOSloginInterceptor">
+				<param name="excludeMethods">login</param>
+			</interceptor>
+			<interceptor-stack name="myStack">
+				<interceptor-ref name="BOSLoginInterceptor"></interceptor-ref>
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+		
+		<!-- 声明自己的拦截器栈 -->
+		<default-interceptor-ref name="myStack"></default-interceptor-ref>
+		
+		<!-- 全局结果集 -->
+		<global-results>
+			<result name="login">/login.jsp</result>
+		</global-results>
+		
 		<!-- 需要进行权限控制的页面访问 -->
 		<action name="page_*_*">
 			<result name="success" type="dispatcher">/WEB-INF/pages/{1}/{2}.jsp</result>
 		</action>
+		
+		<!-- userAction的结果集 -->
 		<action name="userAction_*" class="userAction" method="{1}">
-			<result name="login">/login.jsp</result>
 			<result name="home">/index.jsp</result>
 		</action>
 	</package>
