@@ -25,6 +25,9 @@
 	src="${pageContext.request.contextPath }/js/ztree/jquery.ztree.all-3.5.js"
 	type="text/javascript"></script>
 <script
+	src="${pageContext.request.contextPath }/js/outOfBounds.js"
+	type="text/javascript"></script>
+<script
 	src="${pageContext.request.contextPath }/js/easyui/locale/easyui-lang-zh_CN.js"
 	type="text/javascript"></script>
 <script type="text/javascript">

@@ -22,8 +22,8 @@
 		</interceptors>
 		
 		<!-- 声明自己的拦截器栈 -->
-		<default-interceptor-ref name="myStack"></default-interceptor-ref>
-		
+		<!-- <default-interceptor-ref name="myStack"></default-interceptor-ref>
+		 -->
 		<!-- 全局结果集 -->
 		<global-results>
 			<result name="login">/login.jsp</result>
@@ -37,6 +37,10 @@
 		<!-- userAction的结果集 -->
 		<action name="userAction_*" class="userAction" method="{1}">
 			<result name="home">/index.jsp</result>
+		</action>
+		
+		<action name="staffAction_*" class="staffAction" method="{1}">
+			<result name="list">/WEB-INF/page/base/staff.jsp</result>
 		</action>
 	</package>
 </struts>

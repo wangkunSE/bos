@@ -1,2 +1,4 @@
 eclipse.preferences.version=1
+encoding//WebContent/json/menu.json=UTF-8
+encoding//WebContent/json/staff.json=UTF-8
 encoding//src/bos/sshproject/utils/MD5Utils.java=UTF-8
