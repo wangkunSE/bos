@@ -22,6 +22,11 @@ public class StaffAction extends BaseAction<Staff> {
 	@Autowired
 	private IStaffService staffService;
 	
+	//删除用
+	private String ids;
+	public void setIds(String ids) {
+		this.ids = ids;
+	}
 	//分页用
 	private int page;
 	private int rows;
@@ -62,4 +67,32 @@ public class StaffAction extends BaseAction<Staff> {
 		
 		return NONE;
 	}
+	
+	/**
+	 * 批量删除功能(逻辑删除)
+	 * @param ids
+	 * @return
+	 */
+	public String delete(){
+		
+		staffService.deleteBatch(ids);
+		
+		return "list";
+	}
+	
+	public String edit(){
+		
+		//先查询 
+		Staff dbStaff = staffService.findById(model.getId());
+		//再按照提交的参数进行覆盖
+		dbStaff.setName(model.getName());
+		dbStaff.setTelephone(model.getTelephone());
+		dbStaff.setStation(model.getStation());
+		dbStaff.setHaspda(model.getHaspda());
+		dbStaff.setStandard(model.getStandard());
+		
+		staffService.update(dbStaff);
+		return "list";
+	}
+	
 }

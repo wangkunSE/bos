@@ -36,4 +36,8 @@
             <one-to-many class="bos.sshproject.decidezone.domin.Decidezone" />
         </set>
     </class>
+    
+    <query name="staff.delete">
+    	UPDATE Staff SET deltag='1' WHERE id = ?
+    </query>
 </hibernate-mapping>

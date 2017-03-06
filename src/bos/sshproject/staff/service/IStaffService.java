@@ -10,4 +10,14 @@ public interface IStaffService {
 
 	void pageQuery(PageBean pageBean);
 
+	/**
+	 * ÅúÁ¿É¾³ý
+	 * @param ids
+	 */
+	void deleteBatch(String ids);
+
+	Staff findById(String id);
+
+	void update(Staff dbStaff);
+
 }

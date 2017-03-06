@@ -27,4 +27,25 @@ public class StaffServiceImpl implements IStaffService {
 		staffDao.pageQuery(pageBean);
 		
 	}
+
+	@Override
+	public void deleteBatch(String ids) {
+		
+		String[] staffIds = ids.split(",");
+		for (String id : staffIds) {
+			staffDao.executeUpdate("staff.delete", id);
+		}
+	}
+
+	@Override
+	public Staff findById(String id) {
+		
+		return staffDao.findById(id);
+	}
+
+	@Override
+	public void update(Staff dbStaff) {
+		
+		staffDao.update(dbStaff);
+	}
 }
