@@ -1,4 +1,7 @@
-package bos.sshproject.domin;
+package bos.sshproject.subarea.domin;
+
+import bos.sshproject.decidezone.domin.Decidezone;
+import bos.sshproject.region.domin.Region;
 
 /**
  * Subarea entity. @author MyEclipse Persistence Tools

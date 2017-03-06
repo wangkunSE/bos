@@ -1,4 +1,4 @@
-package bos.sshproject.domin;
+package bos.sshproject.staff.domin;
 
 import java.util.HashSet;
 import java.util.Set;

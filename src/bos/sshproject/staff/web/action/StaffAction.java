@@ -5,7 +5,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import bos.sshproject.base.action.BaseAction;
-import bos.sshproject.domin.Staff;
+import bos.sshproject.staff.domin.Staff;
 import bos.sshproject.staff.service.IStaffService;
 
 @Controller
@@ -14,6 +14,7 @@ public class StaffAction extends BaseAction<Staff> {
 	
 	@Autowired
 	private IStaffService staffService;
+	
 	public String add(){
 		
 		staffService.save(model);
