@@ -10,9 +10,12 @@ import javax.annotation.Resource;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.Projections;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 import bos.sshproject.base.dao.IBaseDao;
+import bos.sshproject.base.page.PageBean;
 
 public class BaseDaoImpl<T> extends HibernateDaoSupport implements IBaseDao<T> {
 
@@ -79,6 +82,28 @@ public class BaseDaoImpl<T> extends HibernateDaoSupport implements IBaseDao<T> {
 			query.setParameter(i++, object);
 		}
 		query.executeUpdate();
+	}
+	@Override
+	public void pageQuery(PageBean pageBean) {
+		
+		int currentPage = pageBean.getCurrentPage();
+		int pageSize = pageBean.getPageSize();
+		DetachedCriteria detachedCriteria = pageBean.getDetachedCriteria();
+		
+		//查总行数
+		detachedCriteria.setProjection(Projections.rowCount());
+		List<Long> list = this.getHibernateTemplate().findByCriteria(detachedCriteria);
+		pageBean.setTotal(list.get(0).intValue());
+		
+		//查当前展示的数据集合
+		detachedCriteria.setProjection(null);
+		//重置表和类的映射关系
+		detachedCriteria.setResultTransformer(DetachedCriteria.ROOT_ENTITY);
+		//当前页展示的数据集合
+		int firstResult = (currentPage - 1)* pageSize;
+		int maxResults = pageSize;
+		List rows = this.getHibernateTemplate().findByCriteria(detachedCriteria,firstResult,maxResults);
+		pageBean.setRows(rows);
 	}
 
 

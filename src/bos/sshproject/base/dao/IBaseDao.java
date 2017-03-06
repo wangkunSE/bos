@@ -3,6 +3,8 @@ package bos.sshproject.base.dao;
 import java.io.Serializable;
 import java.util.List;
 
+import bos.sshproject.base.page.PageBean;
+
 public interface IBaseDao<T> {
 	
 	public void save(T entity);
@@ -12,5 +14,11 @@ public interface IBaseDao<T> {
 	public List<T> list();
 	
 	public void executeUpdate(String queryName, Object... objects);
+	
+	/**
+	 * 通用分页查询方法
+	 * @param pageBean
+	 */
+	void pageQuery(PageBean pageBean);
 
 }

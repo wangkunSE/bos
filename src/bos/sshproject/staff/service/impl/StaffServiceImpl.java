@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import bos.sshproject.base.page.PageBean;
 import bos.sshproject.staff.dao.IStaffDao;
 import bos.sshproject.staff.domin.Staff;
 import bos.sshproject.staff.service.IStaffService;
@@ -19,5 +20,11 @@ public class StaffServiceImpl implements IStaffService {
 	@Override
 	public void save(Staff model) {
 		staffDao.save(model);
+	}
+
+	@Override
+	public void pageQuery(PageBean pageBean) {
+		staffDao.pageQuery(pageBean);
+		
 	}
 }
