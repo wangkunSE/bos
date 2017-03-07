@@ -47,24 +47,10 @@ public class StaffAction extends BaseAction<Staff> {
 	//分页查询取派员
 	public String pageQuery() throws IOException{
 		
-		PageBean pageBean = new PageBean();
-		pageBean.setCurrentPage(page);
-		pageBean.setPageSize(rows);
-		DetachedCriteria detachedCriteria = DetachedCriteria.forClass(Staff.class);
-		pageBean.setDetachedCriteria(detachedCriteria);
-		
 		staffService.pageQuery(pageBean);
 		
 		//将pageBean转化为json数据
-		
-		JsonConfig jsonConfig = new JsonConfig();
-		//注意死循环 decidezone
-		jsonConfig.setExcludes(new String[]{"currentPage","detachedCriteria","pageSize"});
-		JSONObject jsonObject = JSONObject.fromObject(pageBean,jsonConfig);
-		String json = jsonObject.toString();
-		ServletActionContext.getResponse().setContentType("text/json;charset=utf-8");
-		ServletActionContext.getResponse().getWriter().print(json);
-		
+		this.writePageBean2Json(pageBean, new String[]{"currentPage","detachedCriteria","pageSize"});
 		return NONE;
 	}
 	
