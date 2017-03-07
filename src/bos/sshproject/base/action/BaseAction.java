@@ -28,6 +28,7 @@ public class BaseAction<T> extends ActionSupport implements ModelDriven<T> {
 	
 	//分页用
 	protected PageBean pageBean = new PageBean();
+	DetachedCriteria detachedCriteria = null;
 	public void setPage(int page) {
 		pageBean.setCurrentPage(page);
 	}
@@ -35,7 +36,6 @@ public class BaseAction<T> extends ActionSupport implements ModelDriven<T> {
 		pageBean.setPageSize(rows);
 	}
 	
-	DetachedCriteria detachedCriteria = null;
 
 	/**
 	 * 构造方法 动态创建model

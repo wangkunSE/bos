@@ -27,16 +27,7 @@ public class StaffAction extends BaseAction<Staff> {
 	public void setIds(String ids) {
 		this.ids = ids;
 	}
-	//分页用
-	private int page;
-	private int rows;
-	public void setPage(int page) {
-		this.page = page;
-	}
-	public void setRows(int rows) {
-		this.rows = rows;
-	}
-	
+
 	//添加取派员
 	public String add(){
 		
