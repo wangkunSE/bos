@@ -7,18 +7,24 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.struts2.ServletActionContext;
+import org.hibernate.criterion.DetachedCriteria;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import bos.sshproject.base.action.BaseAction;
+import bos.sshproject.base.page.PageBean;
 import bos.sshproject.region.domin.Region;
 import bos.sshproject.region.service.IRegionService;
+import bos.sshproject.utils.PinYin4jUtils;
+import net.sf.json.JSONObject;
+import net.sf.json.JsonConfig;
 
 /**
  * 区域管理
@@ -31,6 +37,16 @@ public class RegionAction extends BaseAction<Region>{
 	
 	@Autowired
 	private IRegionService regionService;
+
+	//分页用
+	private int page;
+	private int rows;
+	public void setPage(int page) {
+		this.page = page;
+	}
+	public void setRows(int rows) {
+		this.rows = rows;
+	}
 	
 	private File myFile;
 	public void setMyFile(File myFile) {
@@ -60,6 +76,21 @@ public class RegionAction extends BaseAction<Region>{
 				String postcode = row.getCell(4).getStringCellValue();
 				
 				Region region = new Region(id, province, city, district, postcode, null, null, null);
+				
+				city = city.substring(0,city.length() - 1);
+				String[] stringToPinyin = PinYin4jUtils.stringToPinyin(city);
+				String citycode = StringUtils.join(stringToPinyin,"");
+				
+				//简码
+				province = province.substring(0,province.length()-1);
+				district = district.substring(0,district.length()-1);
+				String info = province+city+district;
+				String[] headByString = PinYin4jUtils.getHeadByString(info);
+				String shortcode = StringUtils.join(headByString,"");
+				
+				region.setCitycode(citycode);
+				region.setShortcode(shortcode);
+				
 				list.add(region);
 			}
 			
@@ -71,6 +102,26 @@ public class RegionAction extends BaseAction<Region>{
 		}
 		ServletActionContext.getResponse().setContentType("text/html;charset=utf-8");
 		ServletActionContext.getResponse().getWriter().print(flag);
+		
+		return NONE;
+	}
+	
+	public String pageQuery() throws IOException{
+		
+		PageBean pageBean = new PageBean();
+		pageBean.setCurrentPage(page);
+		pageBean.setPageSize(rows);
+		DetachedCriteria detachedCriteria = DetachedCriteria.forClass(Region.class);
+		pageBean.setDetachedCriteria(detachedCriteria);
+		regionService.pageQuery(pageBean);
+		
+		JsonConfig jsonConfig = new JsonConfig();
+		jsonConfig.setExcludes(new String[]{"currentPage","detachedCriteria","pageSize"});
+		JSONObject jsonObject = JSONObject.fromObject(pageBean,jsonConfig);
+		
+		String json = jsonObject.toString();
+		ServletActionContext.getResponse().setContentType("text/json;charset=utf-8");
+		ServletActionContext.getResponse().getWriter().print(json);
 		
 		return NONE;
 	}

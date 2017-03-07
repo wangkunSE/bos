@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import bos.sshproject.base.page.PageBean;
 import bos.sshproject.region.dao.IRegionDao;
 import bos.sshproject.region.domin.Region;
 import bos.sshproject.region.service.IRegionService;
@@ -25,6 +26,11 @@ public class RegionServiceImpl implements IRegionService {
 			regionDao.saveOrUpdate(region);
 		}
 		
+	}
+	@Override
+	public void pageQuery(PageBean pageBean) {
+		
+		regionDao.pageQuery(pageBean);
 	}
 
 }
