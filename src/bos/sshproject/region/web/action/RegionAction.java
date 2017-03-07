@@ -105,5 +105,15 @@ public class RegionAction extends BaseAction<Region>{
 		
 		return NONE;
 	}
+	
+	public String listAjax() throws IOException{
+		
+		List<Region> list = regionService.findAll();
+		String[] excludes = null;
+		this.writeList2Json(list, excludes);
+		return NONE;
+	}
+
+	
 
 }

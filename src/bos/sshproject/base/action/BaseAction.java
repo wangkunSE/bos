@@ -3,6 +3,7 @@ package bos.sshproject.base.action;
 import java.io.IOException;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
+import java.util.List;
 
 import org.apache.struts2.ServletActionContext;
 import org.hibernate.criterion.DetachedCriteria;
@@ -12,6 +13,7 @@ import com.opensymphony.xwork2.ModelDriven;
 
 import bos.sshproject.base.page.PageBean;
 import bos.sshproject.region.domin.Region;
+import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 import net.sf.json.JsonConfig;
 
@@ -25,6 +27,15 @@ public class BaseAction<T> extends ActionSupport implements ModelDriven<T> {
 	}
 	
 	
+	public  void  writeList2Json(List list, String[] excludes) throws IOException {
+		JsonConfig jsonConfig = new JsonConfig();
+		jsonConfig.setExcludes(excludes);
+		JSONArray jsonObject = JSONArray.fromObject(list, jsonConfig);
+		String json = jsonObject.toString();
+		ServletActionContext.getResponse().setContentType(
+				"text/json;charset=UTF-8");
+		ServletActionContext.getResponse().getWriter().print(json);
+	}
 	
 	//∑÷“≥”√
 	protected PageBean pageBean = new PageBean();
