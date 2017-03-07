@@ -42,5 +42,9 @@
 		<action name="staffAction_*" class="staffAction" method="{1}">
 			<result name="list">/page_base_staff</result>
 		</action>
+		
+		<action name="regionAction_*" class="regionAction" method="{1}" >
+			<result name="list">/WEB-INF/pages/base/region.jsp</result>
+		</action>
 	</package>
 </struts>

@@ -13,6 +13,7 @@ public interface IBaseDao<T> {
 	public T findById(Serializable id);
 	public List<T> list();
 	
+	public void saveOrUpdate(T entity);
 	public void executeUpdate(String queryName, Object... objects);
 	
 	/**
