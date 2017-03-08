@@ -18,7 +18,9 @@ public class Region implements java.io.Serializable {
 	private String postcode;
 	private String shortcode;
 	private String citycode;
-	private String name;
+	public String getName() {
+		return province+city+district;
+	}
 	private Set subareas = new HashSet(0);
 
 	
@@ -53,13 +55,8 @@ public class Region implements java.io.Serializable {
 		return this.id;
 	}
 
-	public String getName() {
-		return province+city+district;
-	}
 
-	public void setName(String name) {
-		this.name = name;
-	}
+
 
 	public void setId(String id) {
 		this.id = id;

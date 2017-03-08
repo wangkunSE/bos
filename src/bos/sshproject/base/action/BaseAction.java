@@ -7,18 +7,31 @@ import java.util.List;
 
 import org.apache.struts2.ServletActionContext;
 import org.hibernate.criterion.DetachedCriteria;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
 import bos.sshproject.base.page.PageBean;
 import bos.sshproject.region.domin.Region;
+import bos.sshproject.region.service.IRegionService;
+import bos.sshproject.staff.service.IStaffService;
+import bos.sshproject.subarea.service.ISubareaService;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 import net.sf.json.JsonConfig;
 
 public class BaseAction<T> extends ActionSupport implements ModelDriven<T> {
 
+	@Autowired
+	protected IRegionService regionService;
+	
+	@Autowired
+	protected IStaffService staffService;
+	
+	@Autowired
+	protected ISubareaService subareaService;
+	
 	protected T model;
 	@Override
 	public T getModel() {

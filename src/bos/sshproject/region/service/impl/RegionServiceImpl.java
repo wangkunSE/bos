@@ -36,5 +36,10 @@ public class RegionServiceImpl implements IRegionService {
 	public List<Region> findAll() {
 		return regionDao.list();
 	}
+	@Override
+	public List<Region> findByQ(String q) {
+		
+		return regionDao.findByQ(q);
+	}
 
 }

@@ -13,4 +13,7 @@ public interface IRegionService {
 
 	List<Region> findAll();
 
+	//Ä£ºý²éÑ¯
+	List<Region> findByQ(String q);
+
 }

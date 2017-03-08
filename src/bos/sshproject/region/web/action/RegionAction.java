@@ -35,9 +35,9 @@ import net.sf.json.JsonConfig;
 @Scope("prototype")
 public class RegionAction extends BaseAction<Region>{
 	
-	@Autowired
-	private IRegionService regionService;
 
+	//模糊查询
+	private String q;
 	
 	private File myFile;
 	public void setMyFile(File myFile) {
@@ -101,16 +101,24 @@ public class RegionAction extends BaseAction<Region>{
 		
 		regionService.pageQuery(pageBean);
 		
-		this.writePageBean2Json(pageBean, new String[]{"currentPage","detachedCriteria","pageSize"});
+		this.writePageBean2Json(pageBean, new String[]{"currentPage","detachedCriteria","pageSize","subareas"});
 		
 		return NONE;
 	}
 	
 	public String listAjax() throws IOException{
 		
-		List<Region> list = regionService.findAll();
-		String[] excludes = null;
+		List<Region> list = null;
+		//有条件
+		if(StringUtils.isNotBlank(q)){
+			list = regionService.findByQ(q);
+		}else{
+		//无条件
+			list = regionService.findAll();
+		}
+		String[] excludes = new String[]{"subareas"};
 		this.writeList2Json(list, excludes);
+		
 		return NONE;
 	}
 

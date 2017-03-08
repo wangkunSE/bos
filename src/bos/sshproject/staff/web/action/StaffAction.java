@@ -19,8 +19,7 @@ import net.sf.json.JsonConfig;
 @Scope("prototype")
 public class StaffAction extends BaseAction<Staff> {
 	
-	@Autowired
-	private IStaffService staffService;
+	
 	
 	//É¾³ýÓÃ
 	private String ids;
