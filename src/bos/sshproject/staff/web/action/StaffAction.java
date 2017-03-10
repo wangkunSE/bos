@@ -41,7 +41,7 @@ public class StaffAction extends BaseAction<Staff> {
 		staffService.pageQuery(pageBean);
 		
 		//将pageBean转化为json数据
-		this.writePageBean2Json(pageBean, new String[]{"currentPage","detachedCriteria","pageSize"});
+		this.writePageBean2Json(pageBean, new String[]{"currentPage","detachedCriteria","pageSize","decidezones"});
 		return NONE;
 	}
 	
@@ -75,7 +75,7 @@ public class StaffAction extends BaseAction<Staff> {
 	public String listAjax() throws IOException{
 		
 		List<Staff> list = staffService.findListNotDelete();
-		String[] excludes = new String[]{"decidedzones"};
+		String[] excludes = new String[]{"decidezones"};
 		this.writeList2Json(list, excludes);
 		return NONE;
 	}

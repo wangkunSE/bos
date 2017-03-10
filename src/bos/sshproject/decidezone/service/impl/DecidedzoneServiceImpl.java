@@ -1,11 +1,14 @@
 package bos.sshproject.decidezone.service.impl;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import bos.sshproject.base.page.PageBean;
 import bos.sshproject.decidezone.dao.IDecidedzoneDao;
 import bos.sshproject.decidezone.domin.Decidezone;
 import bos.sshproject.decidezone.service.IDecidedzoneService;
@@ -27,6 +30,11 @@ public class DecidedzoneServiceImpl implements IDecidedzoneService {
 			subarea.setDecidedzone(model);
 		}
 		decidedzoneDao.save(model);
+	}
+	@Override
+	public void pageQuery(PageBean pageBean) {
+		
+		 decidedzoneDao.pageQuery(pageBean);
 	}
 	
 
