@@ -3,6 +3,8 @@ package bos.sshproject.base.dao;
 import java.io.Serializable;
 import java.util.List;
 
+import org.hibernate.criterion.DetachedCriteria;
+
 import bos.sshproject.base.page.PageBean;
 
 public interface IBaseDao<T> {
@@ -22,4 +24,5 @@ public interface IBaseDao<T> {
 	 */
 	void pageQuery(PageBean pageBean);
 
+	public List<T> findByCriteria(DetachedCriteria detachedCriteria);
 }

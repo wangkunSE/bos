@@ -1,5 +1,9 @@
 package bos.sshproject.staff.service.impl;
 
+import java.util.List;
+
+import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
@@ -47,5 +51,12 @@ public class StaffServiceImpl implements IStaffService {
 	public void update(Staff dbStaff) {
 		
 		staffDao.update(dbStaff);
+	}
+
+	@Override
+	public List<Staff> findListNotDelete() {
+		DetachedCriteria detachedCriteria = DetachedCriteria.forClass(Staff.class);
+		detachedCriteria.add(Restrictions.ne("deltag", "1"));
+		return staffDao.findByCriteria(detachedCriteria);
 	}
 }

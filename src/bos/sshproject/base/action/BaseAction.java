@@ -13,6 +13,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
 import bos.sshproject.base.page.PageBean;
+import bos.sshproject.decidezone.service.IDecidedzoneService;
 import bos.sshproject.region.domin.Region;
 import bos.sshproject.region.service.IRegionService;
 import bos.sshproject.staff.service.IStaffService;
@@ -23,6 +24,10 @@ import net.sf.json.JsonConfig;
 
 public class BaseAction<T> extends ActionSupport implements ModelDriven<T> {
 
+	@Autowired
+	protected IDecidedzoneService decidedzoneService;
+	
+	
 	@Autowired
 	protected IRegionService regionService;
 	

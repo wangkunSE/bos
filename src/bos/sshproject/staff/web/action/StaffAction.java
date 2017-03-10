@@ -1,6 +1,7 @@
 package bos.sshproject.staff.web.action;
 
 import java.io.IOException;
+import java.util.List;
 
 import org.apache.struts2.ServletActionContext;
 import org.hibernate.criterion.DetachedCriteria;
@@ -71,4 +72,11 @@ public class StaffAction extends BaseAction<Staff> {
 		return "list";
 	}
 	
+	public String listAjax() throws IOException{
+		
+		List<Staff> list = staffService.findListNotDelete();
+		String[] excludes = new String[]{"decidedzones"};
+		this.writeList2Json(list, excludes);
+		return NONE;
+	}
 }

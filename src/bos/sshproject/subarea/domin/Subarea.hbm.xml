@@ -11,7 +11,7 @@
             <column name="id" length="32" />
             <generator class="uuid" />
         </id>
-        <many-to-one name="decidezone" class="bos.sshproject.decidezone.domin.Decidezone" fetch="select">
+        <many-to-one name="decidedzone" class="bos.sshproject.decidezone.domin.Decidezone" fetch="select">
             <column name="decidedzone_id" length="32" />
         </many-to-one>
         <many-to-one lazy="false" name="region" class="bos.sshproject.region.domin.Region" fetch="select">

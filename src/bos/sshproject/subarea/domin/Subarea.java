@@ -12,7 +12,7 @@ public class Subarea implements java.io.Serializable {
 	// Fields
 
 	private String id;
-	private Decidezone decidezone;
+	private Decidezone decidedzone;
 	private Region region;
 	private String addresskey;
 	private String startnum;
@@ -20,6 +20,10 @@ public class Subarea implements java.io.Serializable {
 	private String single;
 	private String position;
 
+	public String getSubareaid(){
+		
+		return id;
+	}
 	// Constructors
 
 	/** default constructor */
@@ -32,11 +36,11 @@ public class Subarea implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Subarea(String id, Decidezone decidezone, Region region,
+	public Subarea(String id, Decidezone decidedzone, Region region,
 			String addresskey, String startnum, String endnum, String single,
 			String position) {
 		this.id = id;
-		this.decidezone = decidezone;
+		this.decidedzone = decidedzone;
 		this.region = region;
 		this.addresskey = addresskey;
 		this.startnum = startnum;
@@ -55,12 +59,12 @@ public class Subarea implements java.io.Serializable {
 		this.id = id;
 	}
 
-	public Decidezone getDecidezone() {
-		return this.decidezone;
+	public Decidezone getDecidedzone() {
+		return this.decidedzone;
 	}
 
-	public void setDecidezone(Decidezone decidezone) {
-		this.decidezone = decidezone;
+	public void setDecidedzone(Decidezone decidezone) {
+		this.decidedzone = decidezone;
 	}
 
 	public Region getRegion() {

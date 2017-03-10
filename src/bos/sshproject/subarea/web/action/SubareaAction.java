@@ -101,4 +101,11 @@ public class SubareaAction extends BaseAction<Subarea> {
 		hssfWorkbook.write(outputStream);
 		return NONE;
 	}
+	
+	public String listAjax() throws IOException{
+		List<Subarea> list = subareaService.findListNotAssociation();
+		String[] excludes = new String[]{"decidedzone","region"};
+		this.writeList2Json(list, excludes);
+		return NONE;
+	}
 }

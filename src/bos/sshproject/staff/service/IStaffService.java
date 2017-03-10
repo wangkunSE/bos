@@ -1,5 +1,7 @@
 package bos.sshproject.staff.service;
 
+import java.util.List;
+
 import bos.sshproject.base.page.PageBean;
 import bos.sshproject.staff.domin.Staff;
 
@@ -19,5 +21,7 @@ public interface IStaffService {
 	Staff findById(String id);
 
 	void update(Staff dbStaff);
+
+	List<Staff> findListNotDelete();
 
 }
