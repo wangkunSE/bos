@@ -1,7 +1,7 @@
 # bos
 a ssh project 
 ##1.build environment
-- eclipse
+- eclipse neon
 - tomcat 6.0
 - jdk1.7
 - struts2
