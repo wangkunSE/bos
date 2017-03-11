@@ -7,8 +7,10 @@ a ssh project
 - struts2
 - spring3
 - hibernate3
+
 ##2.base pages
 ##3.core function
+
 - login
 - staff
 - decidedzone
