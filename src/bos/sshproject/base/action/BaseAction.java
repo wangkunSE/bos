@@ -13,6 +13,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
 import bos.sshproject.base.page.PageBean;
+import bos.sshproject.crm.CustomerService;
 import bos.sshproject.decidezone.service.IDecidedzoneService;
 import bos.sshproject.region.domin.Region;
 import bos.sshproject.region.service.IRegionService;
@@ -37,6 +38,8 @@ public class BaseAction<T> extends ActionSupport implements ModelDriven<T> {
 	@Autowired
 	protected ISubareaService subareaService;
 	
+	@Autowired
+	protected CustomerService customerService;
 	protected T model;
 	@Override
 	public T getModel() {

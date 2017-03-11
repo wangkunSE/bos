@@ -43,8 +43,40 @@
 		$('#searchWindow').window("open");
 	}
 	
+	var id;
 	function doAssociations(){
-		$('#customerWindow').window('open');
+		//判断是否选中了一个定区
+		var rows = $("#grid").datagrid("getSelections");
+		if(rows.length == 1){
+			id = rows[0].id;
+			$('#customerWindow').window('open');
+			$("#noassociationSelect").empty();
+			$("#associationSelect").empty();
+			//发送ajax请求获取未关联到定区的客户
+			var url1 = "${pageContext.request.contextPath}/decidedzoneAction_findnoassociationCustomers";
+			$.post(url1,{},function(data){
+				//解析json数据,填充到下拉框
+				for( var i = 0;i < data.length;i++){
+					var id = data[i].id;
+					var name = data[i].name;
+					$("#noassociationSelect").append("<option value="+id+">"+name+"</option>")
+				}
+			},'json');
+			
+			//发送ajax请求获取已关联到定区的客户
+			var url2 = "${pageContext.request.contextPath}/decidedzoneAction_findassociationCustomers";
+			$.post(url2,{"id":rows[0].id},function(data){
+				//解析json数据,填充到下拉框
+				for( var i = 0;i < data.length;i++){
+					var id = data[i].id;
+					var name = data[i].name;
+					$("#associationSelect").append("<option value="+id+">"+name+"</option>")
+				}
+			},'json');
+			
+		}else{
+			$.messager.alert("提示信息","请选中一个定区！！","warning");
+		}
 	}
 	
 	//工具栏
@@ -349,9 +381,9 @@
 	</div>
 	
 	<!-- 关联客户窗口 -->
-	<div class="easyui-window" title="关联客户窗口" id="customerWindow" collapsible="false" closed="true" minimizable="false" maximizable="false" style="top:20px;left:200px;width: 400px;height: 300px;">
+	<div class="easyui-window" title="关联客户窗口" id="customerWindow" modal="true" collapsible="false" closed="true" minimizable="false" maximizable="false" style="top:20px;left:200px;width: 400px;height: 300px;">
 		<div style="overflow:auto;padding:5px;" border="false">
-			<form id="customerForm" action="${pageContext.request.contextPath }/decidedzone_assigncustomerstodecidedzone.action" method="post">
+			<form id="customerForm" action="${pageContext.request.contextPath }/decidedzoneAction_assigncustomer.action" method="post">
 				<table class="table-edit" width="80%" align="center">
 					<tr class="title">
 						<td colspan="3">关联客户</td>
@@ -364,6 +396,27 @@
 						<td>
 							<input type="button" value="》》" id="toRight"><br/>
 							<input type="button" value="《《" id="toLeft">
+							<script type="text/javascript">
+							$(function(){
+								
+								$("#toRight").click(function(){
+									$("#associationSelect").append($("#noassociationSelect option:selected"));
+									
+								});
+								
+								$("#toLeft").click(function(){
+									$("#noassociationSelect").append($("#associationSelect option:selected"));
+									
+								});
+								
+								//未关联客户按钮绑定事件
+								$("#associationBtn").click(function(){
+									$("#associationSelect option").attr("selected","selected");
+									$("input[name=id]").val(id);
+									$("#customerForm").submit();
+								});
+							});
+							</script>
 						</td>
 						<td>
 							<select id="associationSelect" name="customerIds" multiple="multiple" size="10"></select>
