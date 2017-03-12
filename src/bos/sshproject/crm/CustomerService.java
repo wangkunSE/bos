@@ -3,14 +3,43 @@ package bos.sshproject.crm;
 import java.util.List;
 
 
-// 瀹㈡埛鏈嶅姟鎺ュ彛 
+/**
+ * 远程调用crm的借口
+ * @author Administrator
+ *
+ */
 public interface CustomerService {
-	// 鏈叧鑱斿畾鍖哄鎴?
+	/**
+	 *  查找没有关联到客户的定区
+	 * @return
+	 */
 	public List<Customer> findnoassociationCustomers();
 
-	// 鏌ヨ宸茬粡鍏宠仈鎸囧畾瀹氬尯鐨勫鎴?
+	/**
+	 *  查找关系到客户的定区
+	 * @param decidedZoneId
+	 * @return
+	 */
 	public List<Customer> findhasassociationCustomers(String decidedZoneId);
 
-	// 灏嗘湭鍏宠仈瀹氬尯瀹㈡埛鍏宠仈鍒板畾鍖轰笂
+	/**
+	 * 给定区分配客户
+	 * @param customerIds
+	 * @param decidedZoneId
+	 */
 	public void assignCustomersToDecidedZone(Integer[] customerIds, String decidedZoneId);
+	
+	/**
+	 * 根据手机号查询客户
+	 * @param number
+	 * @return
+	 */
+	public Customer findCustomerByPhoneNumber(String number);
+	
+	/**
+	 * 根据取件地址查询定区id
+	 * @param address
+	 * @return
+	 */
+	public String finDecidedzoneIdByPickaddress(String address);
 }

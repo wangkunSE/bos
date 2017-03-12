@@ -13,6 +13,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
 import bos.sshproject.base.page.PageBean;
+import bos.sshproject.bussiness.service.INoticebillService;
 import bos.sshproject.crm.CustomerService;
 import bos.sshproject.decidezone.service.IDecidedzoneService;
 import bos.sshproject.region.domin.Region;
@@ -28,6 +29,8 @@ public class BaseAction<T> extends ActionSupport implements ModelDriven<T> {
 	@Autowired
 	protected IDecidedzoneService decidedzoneService;
 	
+	@Autowired
+	protected INoticebillService noticebillService;
 	
 	@Autowired
 	protected IRegionService regionService;
@@ -91,6 +94,17 @@ public class BaseAction<T> extends ActionSupport implements ModelDriven<T> {
 		JsonConfig jsonConfig = new JsonConfig();
 		jsonConfig.setExcludes(excludes);
 		JSONObject jsonObject = JSONObject.fromObject(pageBean,jsonConfig);
+		
+		String json = jsonObject.toString();
+		ServletActionContext.getResponse().setContentType("text/json;charset=utf-8");
+		ServletActionContext.getResponse().getWriter().print(json);
+	}
+	
+	public void writeObject2Json(Object object,String[] excludes) throws IOException{
+		
+		JsonConfig jsonConfig = new JsonConfig();
+		jsonConfig.setExcludes(excludes);
+		JSONObject jsonObject = JSONObject.fromObject(object,jsonConfig);
 		
 		String json = jsonObject.toString();
 		ServletActionContext.getResponse().setContentType("text/json;charset=utf-8");
