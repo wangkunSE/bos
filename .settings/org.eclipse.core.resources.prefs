@@ -1,6 +1,9 @@
 eclipse.preferences.version=1
 encoding//WebContent/json/menu.json=UTF-8
 encoding//WebContent/json/staff.json=UTF-8
+encoding//src/bos/sshproject/bussiness/domin/Noticebill.java=UTF-8
+encoding//src/bos/sshproject/bussiness/domin/Workbill.java=UTF-8
+encoding//src/bos/sshproject/bussiness/domin/Workordermanage.java=UTF-8
 encoding//src/bos/sshproject/utils/FileUtils.java=UTF-8
 encoding//src/bos/sshproject/utils/MD5Utils.java=UTF-8
 encoding//src/bos/sshproject/utils/PinYin4jUtils.java=UTF-8
