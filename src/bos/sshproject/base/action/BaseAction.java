@@ -14,6 +14,7 @@ import com.opensymphony.xwork2.ModelDriven;
 
 import bos.sshproject.base.page.PageBean;
 import bos.sshproject.bussiness.service.INoticebillService;
+import bos.sshproject.bussiness.service.IWorkordermanageService;
 import bos.sshproject.crm.CustomerService;
 import bos.sshproject.decidezone.service.IDecidedzoneService;
 import bos.sshproject.region.domin.Region;
@@ -26,6 +27,9 @@ import net.sf.json.JsonConfig;
 
 public class BaseAction<T> extends ActionSupport implements ModelDriven<T> {
 
+	@Autowired
+	protected IWorkordermanageService workordermanageService;
+	
 	@Autowired
 	protected IDecidedzoneService decidedzoneService;
 	

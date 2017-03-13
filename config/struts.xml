@@ -58,5 +58,9 @@
 		<action name="noticebillAction_*" class="noticebillAction" method="{1}" >
 			<result name="addUI">/WEB-INF/page_base_noticebill_add</result>
 		</action>
+		
+		<action name="workordermanageAction_*" class="workordermanageAction" method="{1}" >
+			<result name="list">/WEB-INF/page_base_quickworkorder</result>
+		</action>
 	</package>
 </struts>

@@ -7,6 +7,8 @@ a ssh project
 - struts2
 - spring3
 - hibernate3
+- jquery-easyui
+- jquery-ztree
 
 ##2.base pages
 ##3.core function
@@ -16,3 +18,5 @@ a ssh project
 - decidedzone
 - subarea
 - region
+- workbill
+- workordermanage

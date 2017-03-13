@@ -165,6 +165,16 @@
 			onAfterEdit : function(rowIndex, rowData, changes){
 				console.info(rowData);
 				editIndex = undefined;
+				//发送ajax请求 完成保存
+				var url = "${pageContext.request.contextPath}/workordermanageAction_add.action";
+				$.post(url,rowData,function(data){
+					
+					if(data == "1"){
+						$.messager.alert("提示信息","工作单信息录入成功！","info");
+					}else{
+						$.messager.alert("提示信息","工作单信息录入失败！","warning");
+					}
+				});
 			}
 		});
 	});
