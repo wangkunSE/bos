@@ -1,11 +1,11 @@
-package bos.sshproject.bussiness.domin;
+package bos.sshproject.bussiness.domain;
 
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
-import bos.sshproject.staff.domin.Staff;
-import bos.sshproject.user.domin.User;
+import bos.sshproject.staff.domain.Staff;
+import bos.sshproject.user.domain.User;
 
 
 public class Noticebill implements java.io.Serializable {
@@ -13,11 +13,11 @@ public class Noticebill implements java.io.Serializable {
 	// Fields
 
 	private String id;
-	private User user;//业务�?
-	private Staff staff;//当前业务通知单对应的取派�?
+	private User user;//业务�??
+	private Staff staff;//当前业务通知单对应的取派�??
 	private String customerId;//客户id
 	private String customerName;//客户姓名
-	private String delegater;//联系�?
+	private String delegater;//联系�??
 	private String telephone;//电话
 	private String pickaddress;//取件地址
 	private String arrivecity;//到达城市
@@ -27,7 +27,7 @@ public class Noticebill implements java.io.Serializable {
 	private Double weight;//重量
 	private String volume;//体积
 	private String remark;//备注
-	private String ordertype;//分单类型：自动�?�人�?
+	private String ordertype;//分单类型：自动�?�人�??
 	private Set workbills = new HashSet(0);//当前业务通知单对应的工单
 
 	// Constructors

@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import bos.sshproject.base.dao.impl.BaseDaoImpl;
 import bos.sshproject.base.page.PageBean;
-import bos.sshproject.region.domin.Region;
+import bos.sshproject.region.domain.Region;
 
 @Repository
 public class RegionDaoImpl extends BaseDaoImpl<Region> implements IRegionDao {

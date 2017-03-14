@@ -17,7 +17,7 @@ import bos.sshproject.bussiness.service.INoticebillService;
 import bos.sshproject.bussiness.service.IWorkordermanageService;
 import bos.sshproject.crm.CustomerService;
 import bos.sshproject.decidezone.service.IDecidedzoneService;
-import bos.sshproject.region.domin.Region;
+import bos.sshproject.region.domain.Region;
 import bos.sshproject.region.service.IRegionService;
 import bos.sshproject.staff.service.IStaffService;
 import bos.sshproject.subarea.service.ISubareaService;

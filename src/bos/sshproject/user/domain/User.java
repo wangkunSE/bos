@@ -1,6 +1,11 @@
-package bos.sshproject.user.domin;
+package bos.sshproject.user.domain;
 
-import java.sql.Timestamp;
+import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
+
+import bos.sshproject.authority.domain.Role;
+import bos.sshproject.bussiness.domain.Noticebill;
 
 /**
  * User entity. @author MyEclipse Persistence Tools
@@ -14,11 +19,13 @@ public class User implements java.io.Serializable {
 	private String username;
 	private String password;
 	private Double salary;
+	private Date birthday;
 	private String gender;
-	private Timestamp birthday;
 	private String station;
-	private Integer telephone;
+	private String telephone;
 	private String remark;
+	private Set<Noticebill> noticebills = new HashSet<Noticebill>();
+	private Set<Role> roles = new HashSet<Role>();
 
 	// Constructors
 
@@ -35,14 +42,14 @@ public class User implements java.io.Serializable {
 
 	/** full constructor */
 	public User(String id, String username, String password, Double salary,
-			String gender, Timestamp birthday, String station,
-			Integer telephone, String remark) {
+			Date birthday, String gender, String station, String telephone,
+			String remark) {
 		this.id = id;
 		this.username = username;
 		this.password = password;
 		this.salary = salary;
-		this.gender = gender;
 		this.birthday = birthday;
+		this.gender = gender;
 		this.station = station;
 		this.telephone = telephone;
 		this.remark = remark;
@@ -82,20 +89,20 @@ public class User implements java.io.Serializable {
 		this.salary = salary;
 	}
 
+	public Date getBirthday() {
+		return this.birthday;
+	}
+
+	public void setBirthday(Date birthday) {
+		this.birthday = birthday;
+	}
+
 	public String getGender() {
 		return this.gender;
 	}
 
 	public void setGender(String gender) {
 		this.gender = gender;
-	}
-
-	public Timestamp getBirthday() {
-		return this.birthday;
-	}
-
-	public void setBirthday(Timestamp birthday) {
-		this.birthday = birthday;
 	}
 
 	public String getStation() {
@@ -106,11 +113,11 @@ public class User implements java.io.Serializable {
 		this.station = station;
 	}
 
-	public Integer getTelephone() {
+	public String getTelephone() {
 		return this.telephone;
 	}
 
-	public void setTelephone(Integer telephone) {
+	public void setTelephone(String telephone) {
 		this.telephone = telephone;
 	}
 
@@ -120,6 +127,22 @@ public class User implements java.io.Serializable {
 
 	public void setRemark(String remark) {
 		this.remark = remark;
+	}
+
+	public Set<Noticebill> getNoticebills() {
+		return noticebills;
+	}
+
+	public void setNoticebills(Set<Noticebill> noticebills) {
+		this.noticebills = noticebills;
+	}
+
+	public Set<Role> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(Set<Role> roles) {
+		this.roles = roles;
 	}
 
 }

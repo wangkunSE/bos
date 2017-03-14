@@ -11,7 +11,7 @@ import org.springframework.stereotype.Controller;
 
 import bos.sshproject.base.action.BaseAction;
 import bos.sshproject.base.page.PageBean;
-import bos.sshproject.staff.domin.Staff;
+import bos.sshproject.staff.domain.Staff;
 import bos.sshproject.staff.service.IStaffService;
 import net.sf.json.JSONObject;
 import net.sf.json.JsonConfig;

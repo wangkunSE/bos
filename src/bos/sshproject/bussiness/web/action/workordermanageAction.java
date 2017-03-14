@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import bos.sshproject.base.action.BaseAction;
-import bos.sshproject.bussiness.domin.Workordermanage;
+import bos.sshproject.bussiness.domain.Workordermanage;
 
 @Controller
 @Scope("prototype")

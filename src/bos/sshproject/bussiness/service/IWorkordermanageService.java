@@ -1,6 +1,6 @@
 package bos.sshproject.bussiness.service;
 
-import bos.sshproject.bussiness.domin.Workordermanage;
+import bos.sshproject.bussiness.domain.Workordermanage;
 
 public interface IWorkordermanageService {
 

@@ -1,9 +1,9 @@
-package bos.sshproject.decidezone.domin;
+package bos.sshproject.decidezone.domain;
 
 import java.util.HashSet;
 import java.util.Set;
 
-import bos.sshproject.staff.domin.Staff;
+import bos.sshproject.staff.domain.Staff;
 
 /**
  * Decidezone entity. @author MyEclipse Persistence Tools

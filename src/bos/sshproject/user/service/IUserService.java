@@ -2,7 +2,7 @@ package bos.sshproject.user.service;
 
 import org.springframework.stereotype.Controller;
 
-import bos.sshproject.user.domin.User;
+import bos.sshproject.user.domain.User;
 
 public interface IUserService {
 

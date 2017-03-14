@@ -2,7 +2,7 @@ package bos.sshproject.utils;
 
 import org.apache.struts2.ServletActionContext;
 
-import bos.sshproject.user.domin.User;
+import bos.sshproject.user.domain.User;
 
 public class BOScontext {
 

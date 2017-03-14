@@ -4,7 +4,7 @@ import org.springframework.stereotype.Repository;
 
 import bos.sshproject.base.dao.impl.BaseDaoImpl;
 import bos.sshproject.staff.dao.IStaffDao;
-import bos.sshproject.staff.domin.Staff;
+import bos.sshproject.staff.domain.Staff;
 
 @Repository
 public class StaffDaoImpl extends BaseDaoImpl<Staff> implements IStaffDao {

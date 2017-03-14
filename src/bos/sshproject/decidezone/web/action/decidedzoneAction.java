@@ -8,7 +8,7 @@ import org.springframework.stereotype.Controller;
 
 import bos.sshproject.base.action.BaseAction;
 import bos.sshproject.crm.Customer;
-import bos.sshproject.decidezone.domin.Decidezone;
+import bos.sshproject.decidezone.domain.Decidezone;
 
 @Controller
 @Scope("prototype")

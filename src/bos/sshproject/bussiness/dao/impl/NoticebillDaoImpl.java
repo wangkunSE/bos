@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import bos.sshproject.base.dao.impl.BaseDaoImpl;
 import bos.sshproject.base.page.PageBean;
 import bos.sshproject.bussiness.dao.INoticebillDao;
-import bos.sshproject.bussiness.domin.Noticebill;
+import bos.sshproject.bussiness.domain.Noticebill;
 
 @Repository
 public class NoticebillDaoImpl extends BaseDaoImpl<Noticebill> implements INoticebillDao {

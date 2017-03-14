@@ -1,8 +1,8 @@
-package bos.sshproject.bussiness.domin;
+package bos.sshproject.bussiness.domain;
 
 import java.util.Date;
 /**
- * 宸ヤ綔鍗�?
+ * 宸ヤ綔鍗�??
  * @author zhaoqx
  *
  */
@@ -19,12 +19,12 @@ public class Workordermanage implements java.io.Serializable {
 	private String floadreqr;//配置要求
 	private String prodtimelimit;//产品时限
 	private String prodtype;//产品类型
-	private String sendername; //寄件人姓�?
-	private String senderphone;//寄件人电�?
-	private String senderaddr; //寄件人地�?
-	private String receivername;  //收件人姓�?
-	private String receiverphone; //收件人电�?
-	private String receiveraddr;  //收件人地�?
+	private String sendername; //寄件人姓�??
+	private String senderphone;//寄件人电�??
+	private String senderaddr; //寄件人地�??
+	private String receivername;  //收件人姓�??
+	private String receiverphone; //收件人电�??
+	private String receiveraddr;  //收件人地�??
 	private Integer feeitemnum;//计费件数
 	private Double actlweit;//实际重量
 	private String vol;//体积

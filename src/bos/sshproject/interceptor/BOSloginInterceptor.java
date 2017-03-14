@@ -5,7 +5,7 @@ import org.apache.struts2.ServletActionContext;
 import com.opensymphony.xwork2.ActionInvocation;
 import com.opensymphony.xwork2.interceptor.MethodFilterInterceptor;
 
-import bos.sshproject.user.domin.User;
+import bos.sshproject.user.domain.User;
 
 /**
  * 自定义struts拦截器,实现未登录自动跳转到登录页面

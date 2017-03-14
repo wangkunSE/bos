@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import bos.sshproject.base.page.PageBean;
 import bos.sshproject.region.dao.IRegionDao;
-import bos.sshproject.region.domin.Region;
+import bos.sshproject.region.domain.Region;
 import bos.sshproject.region.service.IRegionService;
 
 @Service

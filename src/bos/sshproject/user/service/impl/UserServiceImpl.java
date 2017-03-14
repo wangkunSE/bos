@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import bos.sshproject.user.dao.IUserDao;
-import bos.sshproject.user.domin.User;
+import bos.sshproject.user.domain.User;
 import bos.sshproject.user.service.IUserService;
 import bos.sshproject.utils.MD5Utils;
 

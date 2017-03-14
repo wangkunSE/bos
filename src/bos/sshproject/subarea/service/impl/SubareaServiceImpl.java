@@ -11,7 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import bos.sshproject.base.page.PageBean;
 import bos.sshproject.subarea.dao.ISubareaDao;
-import bos.sshproject.subarea.domin.Subarea;
+import bos.sshproject.subarea.domain.Subarea;
 import bos.sshproject.subarea.service.ISubareaService;
 
 @Service

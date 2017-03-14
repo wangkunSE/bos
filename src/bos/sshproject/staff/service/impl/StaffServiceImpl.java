@@ -11,7 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import bos.sshproject.base.page.PageBean;
 import bos.sshproject.staff.dao.IStaffDao;
-import bos.sshproject.staff.domin.Staff;
+import bos.sshproject.staff.domain.Staff;
 import bos.sshproject.staff.service.IStaffService;
 
 @Service

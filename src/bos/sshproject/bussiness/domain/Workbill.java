@@ -1,14 +1,15 @@
-package bos.sshproject.bussiness.domin;
+package bos.sshproject.bussiness.domain;
 
 import java.sql.Timestamp;
-import bos.sshproject.staff.domin.Staff;
+
+import bos.sshproject.staff.domain.Staff;
 
 public class Workbill implements java.io.Serializable {
 
 	// Fields
 
 	private String id;
-	private Noticebill noticebill;//工单对应的业务�?�知�?
+	private Noticebill noticebill;//工单对应的业务�?�知�??
 	private Staff staff;//工单对应的取派员
 	private String type;//工单类型：新、追、改、销
 	private String pickstate;//取件状�?�：未取件�?�取件中、已取件

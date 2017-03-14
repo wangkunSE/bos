@@ -14,7 +14,7 @@ import org.springframework.stereotype.Controller;
 import bos.sshproject.base.action.BaseAction;
 import bos.sshproject.crm.Customer;
 import bos.sshproject.crm.CustomerService;
-import bos.sshproject.user.domin.User;
+import bos.sshproject.user.domain.User;
 import bos.sshproject.user.service.IUserService;
 import bos.sshproject.utils.MD5Utils;
 

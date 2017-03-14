@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import bos.sshproject.bussiness.dao.IWorkordermanageDao;
-import bos.sshproject.bussiness.domin.Workordermanage;
+import bos.sshproject.bussiness.domain.Workordermanage;
 import bos.sshproject.bussiness.service.IWorkordermanageService;
 
 @Service

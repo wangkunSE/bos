@@ -1,4 +1,4 @@
-package bos.sshproject.region.domin;
+package bos.sshproject.region.domain;
 
 import java.util.HashSet;
 import java.util.Set;

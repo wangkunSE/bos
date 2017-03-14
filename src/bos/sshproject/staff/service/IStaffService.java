@@ -3,7 +3,7 @@ package bos.sshproject.staff.service;
 import java.util.List;
 
 import bos.sshproject.base.page.PageBean;
-import bos.sshproject.staff.domin.Staff;
+import bos.sshproject.staff.domain.Staff;
 
 public interface IStaffService {
 

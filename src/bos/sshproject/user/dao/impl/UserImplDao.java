@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 
 import bos.sshproject.base.dao.impl.BaseDaoImpl;
 import bos.sshproject.user.dao.IUserDao;
-import bos.sshproject.user.domin.User;
+import bos.sshproject.user.domain.User;
 
 @Repository
 public class UserImplDao extends BaseDaoImpl<User> implements IUserDao {

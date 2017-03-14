@@ -6,9 +6,9 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import bos.sshproject.base.action.BaseAction;
-import bos.sshproject.bussiness.domin.Noticebill;
+import bos.sshproject.bussiness.domain.Noticebill;
 import bos.sshproject.crm.Customer;
-import bos.sshproject.user.domin.User;
+import bos.sshproject.user.domain.User;
 import bos.sshproject.utils.BOScontext;
 
 @Controller

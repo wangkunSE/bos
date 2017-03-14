@@ -16,8 +16,8 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import bos.sshproject.base.action.BaseAction;
-import bos.sshproject.region.domin.Region;
-import bos.sshproject.subarea.domin.Subarea;
+import bos.sshproject.region.domain.Region;
+import bos.sshproject.subarea.domain.Subarea;
 import bos.sshproject.utils.FileUtils;
 
 @Controller

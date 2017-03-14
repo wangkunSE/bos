@@ -3,7 +3,7 @@ package bos.sshproject.region.service;
 import java.util.List;
 
 import bos.sshproject.base.page.PageBean;
-import bos.sshproject.region.domin.Region;
+import bos.sshproject.region.domain.Region;
 
 public interface IRegionService {
 

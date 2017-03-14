@@ -10,14 +10,14 @@ import org.springframework.transaction.annotation.Transactional;
 
 import bos.sshproject.bussiness.dao.INoticebillDao;
 import bos.sshproject.bussiness.dao.IWorkbillDao;
-import bos.sshproject.bussiness.domin.Noticebill;
-import bos.sshproject.bussiness.domin.Workbill;
+import bos.sshproject.bussiness.domain.Noticebill;
+import bos.sshproject.bussiness.domain.Workbill;
 import bos.sshproject.bussiness.service.INoticebillService;
 import bos.sshproject.crm.CustomerService;
 import bos.sshproject.decidezone.dao.IDecidedzoneDao;
-import bos.sshproject.decidezone.domin.Decidezone;
-import bos.sshproject.staff.domin.Staff;
-import bos.sshproject.user.domin.User;
+import bos.sshproject.decidezone.domain.Decidezone;
+import bos.sshproject.staff.domain.Staff;
+import bos.sshproject.user.domain.User;
 
 @Service
 @Transactional

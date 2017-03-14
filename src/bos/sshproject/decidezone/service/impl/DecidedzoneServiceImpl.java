@@ -10,10 +10,10 @@ import org.springframework.transaction.annotation.Transactional;
 
 import bos.sshproject.base.page.PageBean;
 import bos.sshproject.decidezone.dao.IDecidedzoneDao;
-import bos.sshproject.decidezone.domin.Decidezone;
+import bos.sshproject.decidezone.domain.Decidezone;
 import bos.sshproject.decidezone.service.IDecidedzoneService;
 import bos.sshproject.subarea.dao.ISubareaDao;
-import bos.sshproject.subarea.domin.Subarea;
+import bos.sshproject.subarea.domain.Subarea;
 
 @Service
 @Transactional

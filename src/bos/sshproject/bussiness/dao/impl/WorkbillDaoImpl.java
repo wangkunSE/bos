@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import bos.sshproject.base.dao.impl.BaseDaoImpl;
 import bos.sshproject.base.page.PageBean;
 import bos.sshproject.bussiness.dao.IWorkbillDao;
-import bos.sshproject.bussiness.domin.Workbill;
+import bos.sshproject.bussiness.domain.Workbill;
 
 @Repository
 public class WorkbillDaoImpl extends BaseDaoImpl<Workbill> implements IWorkbillDao {

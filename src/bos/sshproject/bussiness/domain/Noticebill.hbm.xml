@@ -3,15 +3,15 @@
     "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-    <class name="bos.sshproject.bussiness.domin.Noticebill" table="qp_noticebill" catalog="bos">
+    <class name="bos.sshproject.bussiness.domain.Noticebill" table="qp_noticebill" catalog="bos">
         <id name="id" type="java.lang.String">
             <column name="id" length="32" />
             <generator class="uuid" />
         </id>
-        <many-to-one name="user" class="bos.sshproject.user.domin.User" fetch="select">
+        <many-to-one name="user" class="bos.sshproject.user.domain.User" fetch="select">
             <column name="user_id" length="32" />
         </many-to-one>
-        <many-to-one name="staff" class="bos.sshproject.staff.domin.Staff" fetch="select">
+        <many-to-one name="staff" class="bos.sshproject.staff.domain.Staff" fetch="select">
             <column name="staff_id" length="32" />
         </many-to-one>
         <property name="customerId" type="java.lang.String">
@@ -57,7 +57,7 @@
             <key>
                 <column name="noticebill_id" length="32" />
             </key>
-            <one-to-many class="bos.sshproject.bussiness.domin.Workbill" />
+            <one-to-many class="bos.sshproject.bussiness.domain.Workbill" />
         </set>
     </class>
 </hibernate-mapping>

@@ -20,7 +20,7 @@ import org.springframework.stereotype.Controller;
 
 import bos.sshproject.base.action.BaseAction;
 import bos.sshproject.base.page.PageBean;
-import bos.sshproject.region.domin.Region;
+import bos.sshproject.region.domain.Region;
 import bos.sshproject.region.service.IRegionService;
 import bos.sshproject.utils.PinYin4jUtils;
 import net.sf.json.JSONObject;

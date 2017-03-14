@@ -3,7 +3,7 @@
     "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-    <class name="bos.sshproject.user.domin.User" table="t_user">
+    <class name="bos.sshproject.user.domain.User" table="t_user">
         <id name="id" type="java.lang.String">
             <column name="id" length="32" />
             <generator class="assigned" />
@@ -32,6 +32,20 @@
         <property name="remark" type="java.lang.String">
             <column name="remark" />
         </property>
+        <set name="noticebills" inverse="true">
+            <key>
+                <column name="user_id" length="32" />
+            </key>
+            <one-to-many class="bos.sshproject.bussiness.domain.Noticebill" />
+        </set>
+        <set name="roles" table="user_role" catalog="bos19">
+            <key>
+                <column name="user_id" length="32" not-null="true" />
+            </key>
+            <many-to-many entity-name="bos.sshproject.authority.domain.Role">
+                <column name="role_id" length="32" not-null="true" />
+            </many-to-many>
+        </set>
     </class>
     <!-- 命名查询语句 -->
     <query name="editPassword">

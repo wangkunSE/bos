@@ -3,7 +3,7 @@ package bos.sshproject.decidezone.service;
 import java.util.List;
 
 import bos.sshproject.base.page.PageBean;
-import bos.sshproject.decidezone.domin.Decidezone;
+import bos.sshproject.decidezone.domain.Decidezone;
 
 public interface IDecidedzoneService {
 
