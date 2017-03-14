@@ -51,6 +51,7 @@
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/poi-3.9-20121203.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/pinyin4j-2.5.0.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/hessian-4.0.33.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/shiro-all-1.2.2.jar" sourcepath="E:/BD/11-第十一阶段项目：物流管理系统（12天）/bos项目-day07/资料/shiro使用方法/shiro-root-1.2.2-source-release.zip"/>
 	<classpathentry kind="con" path="org.eclipse.jst.server.core.container/org.eclipse.jst.server.tomcat.runtimeTarget/Apache Tomcat v6.0">
 		<attributes>
 			<attribute name="owner.project.facets" value="jst.web"/>

@@ -1,19 +1,20 @@
 package bos.sshproject.user.action;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.annotation.Resource;
 
 import org.apache.commons.lang3.StringUtils;
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authc.AuthenticationException;
+import org.apache.shiro.authc.AuthenticationToken;
+import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.subject.Subject;
 import org.apache.struts2.ServletActionContext;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import bos.sshproject.base.action.BaseAction;
-import bos.sshproject.crm.Customer;
-import bos.sshproject.crm.CustomerService;
 import bos.sshproject.user.domain.User;
 import bos.sshproject.user.service.IUserService;
 import bos.sshproject.utils.MD5Utils;
@@ -28,7 +29,38 @@ public class UserAction extends BaseAction<User> {
 	public void setCheckcode(String checkcode) {
 		this.checkcode = checkcode;
 	}
+	
+	/**
+	 * 使用shiro认证
+	 * @return
+	 */
 	public String login(){
+		
+		String key = (String) ServletActionContext.getRequest().getSession().getAttribute("key");
+		
+		if(StringUtils.isNotBlank(key) && key.equals(checkcode) ){
+			try {
+				//验证码正确
+				//获得当前用户对象
+				 Subject subject = SecurityUtils.getSubject();//未认证
+				 String password = model.getPassword();
+				 password = MD5Utils.md5(password);
+				 
+				 AuthenticationToken token = new UsernamePasswordToken(model.getUsername(), password);
+				 subject.login(token);
+			} catch (AuthenticationException e) {
+				e.printStackTrace();
+			}finally{
+				return null;
+			}
+			 
+		}else{
+			this.addActionError(this.getText("validateCodeError"));
+			return "login";
+		}
+	
+	}
+	public String login_back(){
 		
 		String key = (String) ServletActionContext.getRequest().getSession().getAttribute("key");
 		

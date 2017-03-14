@@ -58,4 +58,25 @@
 		<property name="serviceUrl" value="http://localhost:8081/crm/remoting/customer"/>
 	</bean>
 	
+	<!-- 工厂bean，用于创建shiro框架 -->
+	<bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+		<property name="securityManager" ref="securityManager"></property>
+		<property name="loginUrl" value="/login.jsp"></property>
+		<property name="successUrl" value="/index.jsp"></property>
+		<property name="unauthorizedUrl" value=""></property>
+		<property name="filterChainDefinitions">
+			<value>
+				/css/** = anon
+				/js/** = anon
+				/images/** = anon
+				/validatecode.jsp* = anon
+				/login.jsp* = anon
+				/userAction_login.action = anon
+				/page_base_staff.action = perms["staff"]
+				/* = authc
+			</value>
+		</property>
+	</bean>
+	
+	<bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager"></bean>
 </beans>
