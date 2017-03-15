@@ -27,6 +27,28 @@ import net.sf.json.JsonConfig;
 
 public class BaseAction<T> extends ActionSupport implements ModelDriven<T> {
 
+	/**
+	 * 构造方法 动态创建model
+	 */
+	public BaseAction() {
+		
+		ParameterizedType genericSuperclass = null;
+		if(this.getClass().getGenericSuperclass() instanceof ParameterizedType){
+			genericSuperclass = (ParameterizedType) this.getClass().getGenericSuperclass();
+		}else{
+		//当前为代理Action
+			genericSuperclass = (ParameterizedType) this.getClass().getSuperclass().getGenericSuperclass();
+		}
+		Type[] actualTypeArguments = genericSuperclass.getActualTypeArguments();
+		Class<T> clazz = (Class<T>) actualTypeArguments[0];
+		detachedCriteria = DetachedCriteria.forClass(clazz);
+		pageBean.setDetachedCriteria(detachedCriteria);
+		try {
+			model = clazz.newInstance();
+		} catch (InstantiationException | IllegalAccessException e) {
+			e.printStackTrace();
+		}
+	}
 	@Autowired
 	protected IWorkordermanageService workordermanageService;
 	
@@ -76,22 +98,6 @@ public class BaseAction<T> extends ActionSupport implements ModelDriven<T> {
 	}
 	
 
-	/**
-	 * 构造方法 动态创建model
-	 */
-	public BaseAction() {
-		
-		ParameterizedType genericSuperclass = (ParameterizedType) this.getClass().getGenericSuperclass();
-		Type[] actualTypeArguments = genericSuperclass.getActualTypeArguments();
-		Class<T> clazz = (Class<T>) actualTypeArguments[0];
-		detachedCriteria = DetachedCriteria.forClass(clazz);
-		pageBean.setDetachedCriteria(detachedCriteria);
-		try {
-			model = clazz.newInstance();
-		} catch (InstantiationException | IllegalAccessException e) {
-			e.printStackTrace();
-		}
-	}
 	
 	public void writePageBean2Json(PageBean pageBean,String[] excludes) throws IOException{
 		

@@ -61,9 +61,13 @@
 	<!-- 工厂bean，用于创建shiro框架 -->
 	<bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
 		<property name="securityManager" ref="securityManager"></property>
+		<!-- 注入当前系统的登录界面 -->
 		<property name="loginUrl" value="/login.jsp"></property>
+		<!-- 注入成功界面 -->
 		<property name="successUrl" value="/index.jsp"></property>
-		<property name="unauthorizedUrl" value=""></property>
+		<!-- 注入当前系统的登录界面 -->
+		<property name="unauthorizedUrl" value="/404.html"></property>
+		<!-- 注入url拦截规则 -->
 		<property name="filterChainDefinitions">
 			<value>
 				/css/** = anon
@@ -71,12 +75,25 @@
 				/images/** = anon
 				/validatecode.jsp* = anon
 				/login.jsp* = anon
-				/userAction_login.action = anon
+				/userAction_login = anon
 				/page_base_staff.action = perms["staff"]
 				/* = authc
 			</value>
 		</property>
 	</bean>
 	
-	<bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager"></bean>
+	<bean id="bosRealm" class="bos.sshproject.authority.realm.BOSrealm"></bean>
+	<bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+		<property name="realm" ref="bosRealm"></property>
+	</bean>
+	
+	<!-- 开启shiro注解 -->
+	<!-- 自动代理 -->
+	<bean id="defaultAdvisorAutoProxyCreator" class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator">
+		<!-- 强制使用cglib为action创建代理对象 -->
+		<property name="proxyTargetClass" value="true"></property>
+	</bean>
+	
+	<!-- 切面类 -->
+	<bean class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor"></bean>
 </beans>

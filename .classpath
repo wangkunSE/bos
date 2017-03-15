@@ -29,7 +29,7 @@
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/ognl-3.0.6.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/slf4j-api-1.6.1.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/slf4j-log4j12-1.7.5.jar"/>
-	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/spring-aop-3.2.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/spring-aop-3.2.0.RELEASE.jar" sourcepath="C:/Users/Administrator/Desktop/api/02 Jar包/Spring/AOP/源码/spring-aop-3.2.0.RELEASE-sources.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/spring-aspects-3.2.0.RELEASE.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/spring-beans-3.2.0.RELEASE.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/spring-context-3.2.0.RELEASE.jar"/>

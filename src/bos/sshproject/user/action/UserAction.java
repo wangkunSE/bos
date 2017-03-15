@@ -8,6 +8,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationToken;
+import org.apache.shiro.authc.UnknownAccountException;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
 import org.apache.struts2.ServletActionContext;
@@ -39,7 +40,6 @@ public class UserAction extends BaseAction<User> {
 		String key = (String) ServletActionContext.getRequest().getSession().getAttribute("key");
 		
 		if(StringUtils.isNotBlank(key) && key.equals(checkcode) ){
-			try {
 				//验证码正确
 				//获得当前用户对象
 				 Subject subject = SecurityUtils.getSubject();//未认证
@@ -47,12 +47,21 @@ public class UserAction extends BaseAction<User> {
 				 password = MD5Utils.md5(password);
 				 
 				 AuthenticationToken token = new UsernamePasswordToken(model.getUsername(), password);
+			try {
 				 subject.login(token);
-			} catch (AuthenticationException e) {
+			} catch (UnknownAccountException e) {
 				e.printStackTrace();
-			}finally{
-				return null;
+				this.addActionError(this.getText("usernamenotfound"));
+				return "login";
+			}catch (Exception e) {
+				e.printStackTrace();
+				this.addActionError(this.getText("loginError"));
+				return "login";
 			}
+			//获取认证信息对象中存储的user
+			User user = (User) subject.getPrincipal();
+			ServletActionContext.getRequest().getSession().setAttribute("loginUser", user);
+			return "home";
 			 
 		}else{
 			this.addActionError(this.getText("validateCodeError"));

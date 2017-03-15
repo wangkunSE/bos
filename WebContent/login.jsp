@@ -98,7 +98,7 @@ input[type=password] {
 	</div>
 	<div
 		style="width: 900px; height: 50px; position: absolute; text-align: left; left: 50%; top: 50%; margin-left: -450px;; margin-top: 220px;">
-		<span style="color: #488ED5;">Powered By www.itcast.cn</span><span
+		<span style="color: #488ED5;">Powered By www.wangkun.cn</span><span
 			style="color: #488ED5;margin-left:10px;">推荐浏览器（右键链接-目标另存为）：<a
 			href="http://download.firefox.com.cn/releases/full/23.0/zh-CN/Firefox-full-latest.exe">Firefox</a>
 		</span><span style="float: right; color: #488ED5;">宅急送BOS系统</span>

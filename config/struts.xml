@@ -27,8 +27,13 @@
 		<!-- 全局结果集 -->
 		<global-results>
 			<result name="login">/login.jsp</result>
+			<result name="unauthorizedUrl">/404.html</result>
+			<result name="500">/500.html</result>
 		</global-results>
 		
+		<global-exception-mappings>
+			<exception-mapping result="500" exception="org.apache.shiro.authz.AuthorizationException"></exception-mapping>
+		</global-exception-mappings>
 		<!-- 需要进行权限控制的页面访问 -->
 		<action name="page_*_*">
 			<result name="success" type="dispatcher">/WEB-INF/pages/{1}/{2}.jsp</result>

@@ -3,6 +3,8 @@ package bos.sshproject.staff.web.action;
 import java.io.IOException;
 import java.util.List;
 
+import org.apache.shiro.authz.annotation.RequiresPermissions;
+import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.apache.struts2.ServletActionContext;
 import org.hibernate.criterion.DetachedCriteria;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,6 +52,8 @@ public class StaffAction extends BaseAction<Staff> {
 	 * @param ids
 	 * @return
 	 */
+	@RequiresPermissions(value="staff")//执行当前方法需要staff权限
+	@RequiresRoles("abc")
 	public String delete(){
 		
 		staffService.deleteBatch(ids);
