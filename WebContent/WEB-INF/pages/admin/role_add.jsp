@@ -41,7 +41,7 @@
 				key : {
 					title : "t"
 				},
-				simpleData : {
+				simpleData : {//简单json数据构造节点
 					enable : true
 				}
 			},
@@ -50,13 +50,13 @@
 			}
 		};
 		
+		//发送ajax请求,获取节点数据
 		$.ajax({
-			url : '${pageContext.request.contextPath}/json/menu.json',
+			url : '${pageContext.request.contextPath}/functionAction_listajax.action',
 			type : 'POST',
-			dataType : 'text',
+			dataType : 'json',
 			success : function(data) {
-				var zNodes = eval("(" + data + ")");
-				$.fn.zTree.init($("#functionTree"), setting, zNodes);
+				$.fn.zTree.init($("#functionTree"), setting, data);
 			},
 			error : function(msg) {
 				alert('树加载异常!');
@@ -67,7 +67,20 @@
 		
 		// 点击保存
 		$('#save').click(function(){
-			location.href='${pageContext.request.contextPath}/page_admin_privilege.action';
+			var v = $("#roleForm").form("validate");
+			if(v){
+				var treeObj = $.fn.zTree.getZTreeObj("functionTree");//获得ztree对象
+				var nodes = treeObj.getCheckedNodes(true);//在提交表单之前将选中的checkbox收集
+				var array = new Array();
+				for( var i=0; i<nodes.length; i++){
+					var id = nodes[i].id;//权限id
+					array.push(id);
+				}
+				var ids = array.join(",");
+				alert(ids);
+				$("input[name=ids]").val(ids);
+				$("#roleForm").submit();
+			}
 		});
 	});
 </script>	
@@ -79,7 +92,8 @@
 			</div>
 		</div>
 		<div region="center" style="overflow:auto;padding:5px;" border="false">
-			<form id="roleForm" method="post">
+			<form id="roleForm" method="post" action="${pageContext.request.contextPath}/roleAction_add.action">
+				<input name="ids" type="hidden">
 				<table class="table-edit" width="80%" align="center">
 					<tr class="title">
 						<td colspan="2">角色信息</td>
@@ -87,7 +101,7 @@
 					<tr>
 						<td width="200">编号</td>
 						<td>
-							<input type="text" name="id" class="easyui-validatebox" data-options="required:true" />						
+							<input type="text" name="code" class="easyui-validatebox" data-options="required:true" />						
 						</td>
 					</tr>
 					<tr>

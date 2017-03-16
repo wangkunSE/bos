@@ -6,7 +6,7 @@
     <class name="bos.sshproject.authority.domain.Role" table="auth_role" catalog="bos">
         <id name="id" type="java.lang.String">
             <column name="id" length="32" />
-            <generator class="assigned" />
+            <generator class="uuid" />
         </id>
         <property name="name" type="java.lang.String">
             <column name="name" />
@@ -17,7 +17,7 @@
         <property name="description" type="java.lang.String">
             <column name="description" />
         </property>
-        <set name="functions" table="role_function" catalog="bos19">
+        <set name="functions" table="role_function" catalog="bos">
             <key>
                 <column name="role_id" length="32" not-null="true" />
             </key>

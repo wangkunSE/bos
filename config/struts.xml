@@ -67,5 +67,13 @@
 		<action name="workordermanageAction_*" class="workordermanageAction" method="{1}" >
 			<result name="list">/WEB-INF/page_base_quickworkorder</result>
 		</action>
+		
+		<action name="functionAction_*" class="functionAction" method="{1}" >
+			<result name="list">/WEB-INF/page_admin_function</result>
+		</action>
+		
+		<action name="roleAction_*" class="roleAction" method="{1}" >
+			<result name="list">/WEB-INF/page_admin_role</result>
+		</action>
 	</package>
 </struts>
