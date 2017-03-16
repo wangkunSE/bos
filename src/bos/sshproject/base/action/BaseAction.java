@@ -12,6 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
+import bos.sshproject.authority.service.IFunctionService;
+import bos.sshproject.authority.service.IRoleService;
 import bos.sshproject.base.page.PageBean;
 import bos.sshproject.bussiness.service.INoticebillService;
 import bos.sshproject.bussiness.service.IWorkordermanageService;
@@ -49,6 +51,12 @@ public class BaseAction<T> extends ActionSupport implements ModelDriven<T> {
 			e.printStackTrace();
 		}
 	}
+	@Autowired
+	protected IRoleService roleService;
+	
+	@Autowired
+	protected IFunctionService functionService;
+	
 	@Autowired
 	protected IWorkordermanageService workordermanageService;
 	

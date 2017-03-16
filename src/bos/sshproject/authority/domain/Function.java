@@ -22,6 +22,14 @@ public class Function implements java.io.Serializable {
 	private Set functions = new HashSet(0);
 	private Set roles = new HashSet(0);
 
+	public String getpId(){
+		if(function!=null){
+			
+			return function.getId();
+		}else{
+			return "0";
+		}
+	}
 	// Constructors
 
 	/** default constructor */
