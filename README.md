@@ -1,6 +1,6 @@
 # bos
 a ssh project 
-##1.build environment
+## 1.build environment
 - eclipse neon
 - tomcat 6.0
 - jdk1.7
@@ -10,9 +10,9 @@ a ssh project
 - jquery-easyui
 - jquery-ztree
 
-##2.base pages
+## 2.base pages
 
-##3.core function
+## 3.core function
 
 - login
 - staff
