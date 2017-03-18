@@ -13,4 +13,6 @@ public interface IFunctionService {
 
 	void add(Function model);
 
+	List<Function> findMenu();
+
 }

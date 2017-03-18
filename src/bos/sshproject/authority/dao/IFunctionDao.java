@@ -9,4 +9,8 @@ public interface IFunctionDao extends IBaseDao<Function> {
 
 	List<Function> findListByUserid(String id);
 
+	List<Function> findAllMenu();
+
+	List<Function> findMenuByUserid(String id);
+
 }

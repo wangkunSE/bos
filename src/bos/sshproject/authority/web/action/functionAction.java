@@ -35,4 +35,17 @@ public class functionAction extends BaseAction<Function> {
 		functionService.add(model);
 		return "list";
 	}
+	
+	/**
+	 * 根据登录人查询相应的菜单数据
+	 * @return
+	 * @throws IOException 
+	 */
+	public String findMenu() throws IOException{
+		
+		List<Function> list = functionService.findMenu();
+		String[] excludes = new String[]{"functions","roles","function"};
+		this.writeList2Json(list, excludes);
+		return NONE;
+	}
 }
