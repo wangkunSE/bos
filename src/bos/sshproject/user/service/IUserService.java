@@ -13,5 +13,7 @@ public interface IUserService {
 
 	void pageQuery(PageBean pageBean);
 
+	void save(User model, String[] roleIds);
+
 
 }

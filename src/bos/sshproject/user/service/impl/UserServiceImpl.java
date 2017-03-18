@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import bos.sshproject.authority.domain.Role;
 import bos.sshproject.base.page.PageBean;
 import bos.sshproject.user.dao.IUserDao;
 import bos.sshproject.user.domain.User;
@@ -37,6 +38,20 @@ public class UserServiceImpl implements IUserService {
 	public void pageQuery(PageBean pageBean) {
 		
 		userDao.pageQuery(pageBean);
+	}
+
+	@Override
+	public void save(User model, String[] roleIds) {
+		String password = model.getPassword();
+		password = MD5Utils.md5(password);
+		model.setPassword(password);
+		
+		userDao.save(model);
+		for (String roleId : roleIds) {
+			Role role = new Role(roleId);
+			//用户关联角色
+			model.getRoles().add(role);
+		}
 	}
 
 }

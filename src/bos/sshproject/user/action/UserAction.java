@@ -121,4 +121,17 @@ public class UserAction extends BaseAction<User> {
 		this.writePageBean2Json(pageBean, excludes );
 		return NONE;
 	}
+	
+	private String[] roleIds;
+	public void setRoleIds(String[] roleIds) {
+		this.roleIds = roleIds;
+	}
+	public String[] getRoleIds() {
+		return roleIds;
+	}
+	public String add(){
+		
+		userService.save(model,roleIds);
+		return "list";
+	}
 }
