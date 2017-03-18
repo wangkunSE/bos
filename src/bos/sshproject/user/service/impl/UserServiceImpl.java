@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import bos.sshproject.base.page.PageBean;
 import bos.sshproject.user.dao.IUserDao;
 import bos.sshproject.user.domain.User;
 import bos.sshproject.user.service.IUserService;
@@ -30,6 +31,12 @@ public class UserServiceImpl implements IUserService {
 		
 		userDao.executeUpdate("editPassword", password,id);
 		
+	}
+
+	@Override
+	public void pageQuery(PageBean pageBean) {
+		
+		userDao.pageQuery(pageBean);
 	}
 
 }

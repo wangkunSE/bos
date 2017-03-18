@@ -114,4 +114,11 @@ public class UserAction extends BaseAction<User> {
 		
 		return NONE;
 	}
+	
+	public String pageQuery() throws IOException{
+		userService.pageQuery(pageBean);
+		String[] excludes = new String[]{"noticebills","roles"};
+		this.writePageBean2Json(pageBean, excludes );
+		return NONE;
+	}
 }

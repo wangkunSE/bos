@@ -1,5 +1,6 @@
 package bos.sshproject.user.domain;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -27,6 +28,22 @@ public class User implements java.io.Serializable {
 	private Set<Noticebill> noticebills = new HashSet<Noticebill>();
 	private Set<Role> roles = new HashSet<Role>();
 
+	public String getFormateBirthday(){
+		if(birthday != null){
+			return new SimpleDateFormat("yyyy-MM-dd").format(birthday);
+		}else{
+			return "未提交生日";
+		}
+	}
+	
+	public String getRoleNames(){
+		String names = "";
+		for (Role role : roles) {
+			names += role.getName() + " ";
+		}
+		return names;
+	}
+	
 	// Constructors
 
 	/** default constructor */

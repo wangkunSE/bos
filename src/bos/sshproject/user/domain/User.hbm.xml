@@ -6,7 +6,7 @@
     <class name="bos.sshproject.user.domain.User" table="t_user">
         <id name="id" type="java.lang.String">
             <column name="id" length="32" />
-            <generator class="assigned" />
+            <generator class="uuid" />
         </id>
         <property name="username" type="java.lang.String">
             <column name="username" length="20" not-null="true" />
@@ -38,7 +38,7 @@
             </key>
             <one-to-many class="bos.sshproject.bussiness.domain.Noticebill" />
         </set>
-        <set name="roles" table="user_role" catalog="bos19">
+        <set name="roles" table="user_role" catalog="bos">
             <key>
                 <column name="user_id" length="32" not-null="true" />
             </key>
