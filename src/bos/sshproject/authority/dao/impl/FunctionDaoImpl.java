@@ -14,5 +14,11 @@ import bos.sshproject.base.page.PageBean;
 @Repository
 public class FunctionDaoImpl extends BaseDaoImpl<Function> implements IFunctionDao {
 
+	@Override
+	public List<Function> findListByUserid(String id) {
+		String hql = "SELECT DISTINCT f FROM Function f LEFT OUTER JOIN f.roles r LEFT OUTER JOIN r.users u WHERE u.id = ?";
+		return this.getHibernateTemplate().find(hql,id);
+	}
+
 
 }
