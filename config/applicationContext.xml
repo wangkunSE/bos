@@ -85,6 +85,13 @@
 	<bean id="bosRealm" class="bos.sshproject.authority.realm.BOSrealm"></bean>
 	<bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
 		<property name="realm" ref="bosRealm"></property>
+		<!-- 注入缓存管理器 -->
+		<property name="cacheManager" ref="cacheManager"></property>
+	</bean>
+	<!-- 注册缓存管理器 -->
+	<bean id="cacheManager" class="org.apache.shiro.cache.ehcache.EhCacheManager">
+		<!-- 注入ecache配置文件 -->
+		<property name="cacheManagerConfigFile" value="classpath:ehcache.xml"></property>
 	</bean>
 	
 	<!-- 开启shiro注解 -->
