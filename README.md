@@ -15,6 +15,7 @@ a ssh project
 ## 3.core function
 
 - login
+![登录图片](https://github.com/wangkunSE/bos/raw/master/screenshot/login.gif)
 - staff
 - decidedzone
 - subarea
