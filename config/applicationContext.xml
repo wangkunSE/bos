@@ -52,6 +52,7 @@
 	<!-- 事务注解 -->
 	<tx:annotation-driven/>	
 	
+	
 		<!-- 配置远程服务的代理对象 -->
 	<bean id="customerService" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
 		<property name="serviceInterface" value="bos.sshproject.crm.CustomerService"/>
@@ -117,4 +118,10 @@
 	<bean id="processEngine" class="org.activiti.spring.ProcessEngineFactoryBean">
 		<property name="processEngineConfiguration" ref="processEngineConfiguration" />
 	</bean>
+	
+	<!-- 注册Service for activit -->
+	<bean id="repositoryService" factory-bean="processEngine" factory-method="getRepositoryService"></bean>
+	<bean id="runtimeService" factory-bean="processEngine" factory-method="getRuntimeService"></bean>
+	<bean id="taskService" factory-bean="processEngine" factory-method="getTaskService"></bean>
+	<bean id="identityService" factory-bean="processEngine" factory-method="getIdentityService"></bean>
 </beans>

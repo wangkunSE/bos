@@ -1,4 +1,5 @@
 eclipse.preferences.version=1
+encoding//WebContent/json/admin.json=UTF-8
 encoding//WebContent/json/menu.json=UTF-8
 encoding//WebContent/json/staff.json=UTF-8
 encoding//src/bos/sshproject/bussiness/domain/Noticebill.java=UTF-8

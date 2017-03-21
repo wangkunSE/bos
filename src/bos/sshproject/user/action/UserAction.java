@@ -25,8 +25,6 @@ import bos.sshproject.utils.MD5Utils;
 @Scope("prototype")
 public class UserAction extends BaseAction<User> {
 	
-	@Resource
-	private ProcessEngine processEngine;
 	
 	@Resource
 	private IUserService userService;
@@ -41,7 +39,6 @@ public class UserAction extends BaseAction<User> {
 	 */
 	public String login(){
 		
-		System.out.println(processEngine);
 		String key = (String) ServletActionContext.getRequest().getSession().getAttribute("key");
 		
 		if(StringUtils.isNotBlank(key) && key.equals(checkcode) ){
