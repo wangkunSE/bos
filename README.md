@@ -14,11 +14,13 @@ a ssh project
 
 ## 3.core function
 
+- easyui-ztree
+![easyui-ztree.gif](https://github.com/wangkunSE/bos/raw/master/screenshot/easyui-ztree.gif)
 - login
 ![登录图片](https://github.com/wangkunSE/bos/raw/master/screenshot/login.gif)
-- staff
-- decidedzone
-- subarea
-- region
-- workbill
-- workordermanage
+- ajaxAssociateCustomer
+![ajaxAssociateCustomer.gif](https://github.com/wangkunSE/bos/raw/master/screenshot/ajaxAssociateCustomer.gif)
+- someFunction
+![someFunction.gif](https://github.com/wangkunSE/bos/raw/master/screenshot/someFunction.gif)
+- processDefination
+![processDefination.gif](https://github.com/wangkunSE/bos/raw/master/screenshot/processDefination.gif)
