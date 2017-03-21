@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import javax.annotation.Resource;
 
+import org.activiti.engine.ProcessEngine;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
@@ -25,6 +26,9 @@ import bos.sshproject.utils.MD5Utils;
 public class UserAction extends BaseAction<User> {
 	
 	@Resource
+	private ProcessEngine processEngine;
+	
+	@Resource
 	private IUserService userService;
 	private String checkcode;
 	public void setCheckcode(String checkcode) {
@@ -37,6 +41,7 @@ public class UserAction extends BaseAction<User> {
 	 */
 	public String login(){
 		
+		System.out.println(processEngine);
 		String key = (String) ServletActionContext.getRequest().getSession().getAttribute("key");
 		
 		if(StringUtils.isNotBlank(key) && key.equals(checkcode) ){
