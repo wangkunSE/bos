@@ -93,5 +93,9 @@
 			</result>
 				  -->
 		</action>
+		
+		<action name="processInstanceAction_*" class="processInstanceAction" method="{1}" >
+			<result name="list">/WEB-INF/page_workflow_processinstance</result>
+		</action>
 	</package>
 </struts>

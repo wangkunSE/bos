@@ -72,7 +72,7 @@
   						</script>
   					</td>
   					<td>
-  						<a onclick="showPng('${id}');" href="#">查看流程图</a>
+  						<a onclick="showPng('${id}');" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-search'">查看流程图</a>
   					</td>
   				</tr>
   			</s:iterator>
