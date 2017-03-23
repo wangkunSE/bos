@@ -59,6 +59,9 @@
         <property name="managerCheck" type="java.lang.String">
             <column name="managerCheck" length="1" />
         </property>
+         <property name="start" type="java.lang.String">
+            <column name="start" length="1" />
+        </property>
         <property name="updatetime" type="java.util.Date">
             <column name="updatetime" length="0" />
         </property>

@@ -2,7 +2,7 @@ package bos.sshproject.bussiness.domain;
 
 import java.util.Date;
 /**
- * 宸ヤ綔鍗�??
+ * 宸ヤ綔鍗�??
  * @author zhaoqx
  *
  */
@@ -19,16 +19,17 @@ public class Workordermanage implements java.io.Serializable {
 	private String floadreqr;//配置要求
 	private String prodtimelimit;//产品时限
 	private String prodtype;//产品类型
-	private String sendername; //寄件人姓�??
-	private String senderphone;//寄件人电�??
-	private String senderaddr; //寄件人地�??
-	private String receivername;  //收件人姓�??
-	private String receiverphone; //收件人电�??
-	private String receiveraddr;  //收件人地�??
+	private String sendername; //寄件人姓�??
+	private String senderphone;//寄件人电�??
+	private String senderaddr; //寄件人地�??
+	private String receivername;  //收件人姓�??
+	private String receiverphone; //收件人电�??
+	private String receiveraddr;  //收件人地�??
 	private Integer feeitemnum;//计费件数
 	private Double actlweit;//实际重量
 	private String vol;//体积
-	private String managerCheck;//是否审核配�??
+	private String start = "0";
+	private String managerCheck="0";//是否审核配�??
 	private Date updatetime;//系统时间
 
 	// Constructors
@@ -48,7 +49,7 @@ public class Workordermanage implements java.io.Serializable {
 			String prodtype, String sendername, String senderphone,
 			String senderaddr, String receivername, String receiverphone,
 			String receiveraddr, Integer feeitemnum, Double actlweit,
-			String vol, String managerCheck, Date updatetime) {
+			String vol, String managerCheck, Date updatetime,String start) {
 		this.id = id;
 		this.arrivecity = arrivecity;
 		this.product = product;
@@ -68,12 +69,21 @@ public class Workordermanage implements java.io.Serializable {
 		this.vol = vol;
 		this.managerCheck = managerCheck;
 		this.updatetime = updatetime;
+		this.start = start;
 	}
 
 	// Property accessors
 
 	public String getId() {
 		return this.id;
+	}
+
+	public String getStart() {
+		return start;
+	}
+
+	public void setStart(String start) {
+		this.start = start;
 	}
 
 	public void setId(String id) {
@@ -223,5 +233,13 @@ public class Workordermanage implements java.io.Serializable {
 	public void setUpdatetime(Date updatetime) {
 		this.updatetime = updatetime;
 	}
+
+	@Override
+	public String toString() {
+		return "工作单信息 [编号=" + id + ", 货物名称=" + product
+				+ ", 货物重量=" + weight + ", 收货人="
+				+ receivername + ", 收货人电话=" + receiverphone + "]";
+	}
+	
 
 }

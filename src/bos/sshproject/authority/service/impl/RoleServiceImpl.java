@@ -4,6 +4,9 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.activiti.engine.IdentityService;
+import org.activiti.engine.identity.Group;
+import org.activiti.engine.impl.persistence.entity.GroupEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -20,10 +23,20 @@ public class RoleServiceImpl implements IRoleService {
 	@Resource
 	private IRoleDao roleDao;
 
+	@Resource
+	private IdentityService identityService;
+	/**
+	 * 保存一个角色,同时同步到activiti中
+	 */
 	@Override
 	public void add(Role role, String ids) {
 		
 		roleDao.save(role);
+		
+		//使用角色名称作为组的id
+		Group group = new GroupEntity(role.getName());
+		identityService.saveGroup(group);
+		
 		String[] functionIds = ids.split(",");
 		
 		for (String id : functionIds) {

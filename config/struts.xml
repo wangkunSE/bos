@@ -66,7 +66,7 @@
 		</action>
 		
 		<action name="workordermanageAction_*" class="workordermanageAction" method="{1}" >
-			<result name="list">/WEB-INF/page_base_quickworkorder</result>
+			<result name="list">/WEB-INF/page_workflow_startransfer</result>
 		</action>
 		
 		<action name="functionAction_*" class="functionAction" method="{1}" >
@@ -96,6 +96,11 @@
 		
 		<action name="processInstanceAction_*" class="processInstanceAction" method="{1}" >
 			<result name="list">/WEB-INF/page_workflow_processinstance</result>
+			<result name="showPng">/WEB-INF/page_workflow_image</result>
+			<result name="viewImage" type="stream">
+				<param name="contentType">image/png</param>	 
+				<param name="inputName">pngStream</param>
+			</result>
 		</action>
 	</package>
 </struts>
