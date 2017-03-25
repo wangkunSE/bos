@@ -12,4 +12,8 @@ public interface IWorkordermanageService {
 
 	List<Workordermanage> findListNotStart();
 
+	void start(String id);
+
+	void checkWorkordermanage(String taskId, Integer check, String businessKey);
+
 }

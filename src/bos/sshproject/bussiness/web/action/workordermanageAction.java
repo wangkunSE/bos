@@ -38,4 +38,15 @@ public class workordermanageAction extends BaseAction<Workordermanage> {
 		ActionContext.getContext().getValueStack().set("list", list);
 		return "list";
 	}
+	
+	/**
+	 * 启动物流配送流程
+	 * @return
+	 */
+	public String start(){
+		
+		String id = model.getId();
+		workordermanageService.start(id);
+		return "toList";
+	}
 }

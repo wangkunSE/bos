@@ -67,6 +67,7 @@
 		
 		<action name="workordermanageAction_*" class="workordermanageAction" method="{1}" >
 			<result name="list">/WEB-INF/page_workflow_startransfer</result>
+			<result name="toList" type="redirectAction">workordermanageAction_list</result>
 		</action>
 		
 		<action name="functionAction_*" class="functionAction" method="{1}" >
@@ -75,6 +76,13 @@
 		
 		<action name="roleAction_*" class="roleAction" method="{1}" >
 			<result name="list">/WEB-INF/page_admin_role</result>
+		</action>
+		<action name="taskAction_*" class="taskAction" method="{1}" >
+			<result name="grouptasklist">/WEB-INF/page_workflow_grouptask</result>
+			<result name="personaltasklist">/WEB-INF/page_workflow_personaltask</result>
+			<result name="check">/WEB-INF/page_workflow_check</result>
+			<result name="toGrouptasklist" type="redirectAction">taskAction_findGroupTask</result>
+			<result name="topersonaltasklist" type="redirectAction">taskAction_findPersonalTask</result>
 		</action>
 		
 		<action name="processDefinitionAction_*" class="processDefinitionAction" method="{1}" >

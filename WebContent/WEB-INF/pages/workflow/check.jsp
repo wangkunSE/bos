@@ -9,7 +9,7 @@
 <body>
 	<h3>审核工作单</h3>
 	${map }
-	<s:form namespace="/" action="taskAction_checkWorkOrderManage">
+	<s:form namespace="/" action="taskAction_checkWorkOrderManage.action">
 		<s:hidden name="taskId"></s:hidden>
 		 审核结果：<select name="check">
 		 			<option value="1">通过</option>
