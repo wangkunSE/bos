@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>tabs---选项卡面板</title>
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/js/easyui/themes/default/easyui.css">
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/js/easyui/themes/icon.css">
-<script type="text/javascript" src="${pageContext.request.contextPath }/js/jquery-1.8.3.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath }/js/easyui/jquery.easyui.min.js"></script>
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/js/themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/js/themes/icon.css">
+	<script type="text/javascript" src="${pageContext.request.contextPath }/js/jquery.min.js"></script>
+	<script type="text/javascript" src="${pageContext.request.contextPath }/js/jquery.easyui.min.js"></script>
 </head>
 <body class="easyui-layout">
 	<!-- 使用div指定区域 -->
